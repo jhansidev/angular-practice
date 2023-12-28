@@ -5,18 +5,18 @@
       <p>Please signup !!</p>
       <div class="divider" role="separator" aria-label="Divider"></div>
       <div class="content">
-          <form ngForm="form">
+          <form formGroup="myForm" ngForm="form" (ngSubmit)="onSubmit()">
             <p class="formInput">
-              <label for="firstname">
+              <label for="firstName">
                 First Name:
               </label>
-              <input id="firstname" type="text" formControlName="firstname">
+              <input id="firstName" type="text" formControlName="firstName">
             </p>
             <p class="formInput">
-              <label for="lastname">
+              <label for="lastName">
                 Last Name:
               </label>
-              <input id="lastname" type="text" formControlName="lastname">
+              <input id="lastName" type="text" formControlName="lastName">
             </p>
             <p class="formInput">
               <label for="email">
