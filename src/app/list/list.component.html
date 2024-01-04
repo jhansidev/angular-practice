@@ -1,6 +1,9 @@
-<main>
-  <div>
-  <h1>Hello!</h1>
-  <p>The list is here!!!</p>
-  </div>
-</main>
+<div class="content">
+  <ul>
+   @for(product of list; track list){{
+    <li>
+       <h2> {{list.products}}</h2>
+      </li>
+    }}
+  </ul>
+</div>
