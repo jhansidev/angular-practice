@@ -1,10 +1,12 @@
 
 .content {
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+.list{
   display: flex;
-  justify-content: space-around;
-  width: 100%;
-  max-width: 700px;
-  margin-bottom: 3rem;
+  flex-direction: column;
+  flex-basis: fit-content;
 }
 
 .content h1 {

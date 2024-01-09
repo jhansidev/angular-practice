@@ -13,22 +13,40 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
 
 
 export class ListComponent implements OnInit{
- httpClient = inject(HttpClient);
+  httpClient = inject(HttpClient);
   list: ProductListResponse = { products: [], total: 0, skip: 0, limit: 0 };
- ngOnInit() {
-   this.fetchList();
- }
+  smartphones : Array<Product> = [];
+  ngOnInit() {
+    this.fetchList();
+  }
 
- fetchList(){
-   this.httpClient.get<ProductListResponse>('https://dummyjson.com/products').subscribe((response) => {
-     console.log(response);
-     this.list.products = response.products;
-   });
- }
+  fetchList(){
+    return this.httpClient.get<ProductListResponse>('https://dummyjson.com/products').subscribe((response) => {
+      console.log(response);
+      this.list.products = response.products;
+
+      this.smartphones = this.list.products.filter((product) => product.category === 'smartphones');
+      console.log('smartphones',this.smartphones);
+    });
+  }
 
 }
+
+export interface Product {
+  id: number;
+  title: string;
+  description: string;
+  price: number;
+  discountPercentage: number;
+  rating: number;
+  stock: number;
+  brand: string;
+  category: string;
+  thumbnail: string;
+  images: Array<string>;
+}
 export interface ProductListResponse {
-  products: any[];
+  products: Array<Product>;
   total: number;
   skip: number;
   limit: number;
